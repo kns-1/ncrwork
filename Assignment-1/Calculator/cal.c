@@ -4,7 +4,7 @@ int sub(int, int);
 int mul(int, int);
 int div(int, int);
 extern int res;
-void main()
+int main()
 {
 	int a, b, ch;
 	printf("res= %d\n", res);
@@ -31,5 +31,5 @@ void main()
 
 	}
 
-
+	return 0;
 }

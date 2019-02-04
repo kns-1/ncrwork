@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Calculator", "Calculator\Calculator.vcxproj", "{45BAF86F-AD95-4A80-B890-D0039BE403CD}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Armstrong", "Armstrong\Armstrong.vcxproj", "{D1FFF58C-6C2B-4C50-8C57-FA942D39415C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{45BAF86F-AD95-4A80-B890-D0039BE403CD}.Release|x64.Build.0 = Release|x64
 		{45BAF86F-AD95-4A80-B890-D0039BE403CD}.Release|x86.ActiveCfg = Release|Win32
 		{45BAF86F-AD95-4A80-B890-D0039BE403CD}.Release|x86.Build.0 = Release|Win32
+		{D1FFF58C-6C2B-4C50-8C57-FA942D39415C}.Debug|x64.ActiveCfg = Debug|x64
+		{D1FFF58C-6C2B-4C50-8C57-FA942D39415C}.Debug|x64.Build.0 = Debug|x64
+		{D1FFF58C-6C2B-4C50-8C57-FA942D39415C}.Debug|x86.ActiveCfg = Debug|Win32
+		{D1FFF58C-6C2B-4C50-8C57-FA942D39415C}.Debug|x86.Build.0 = Debug|Win32
+		{D1FFF58C-6C2B-4C50-8C57-FA942D39415C}.Release|x64.ActiveCfg = Release|x64
+		{D1FFF58C-6C2B-4C50-8C57-FA942D39415C}.Release|x64.Build.0 = Release|x64
+		{D1FFF58C-6C2B-4C50-8C57-FA942D39415C}.Release|x86.ActiveCfg = Release|Win32
+		{D1FFF58C-6C2B-4C50-8C57-FA942D39415C}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
