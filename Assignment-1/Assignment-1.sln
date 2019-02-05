@@ -11,6 +11,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Palindrome", "Palindrome\Pa
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SumOfDigits", "SumOfDigits\SumOfDigits.vcxproj", "{567FC49F-ECDF-4864-AC61-0B801FAC7A8F}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Pyramid", "Project1\Project1.vcxproj", "{1BC1B93A-1EE7-4F94-8170-4EFDD010FBA6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -50,6 +52,14 @@ Global
 		{567FC49F-ECDF-4864-AC61-0B801FAC7A8F}.Release|x64.Build.0 = Release|x64
 		{567FC49F-ECDF-4864-AC61-0B801FAC7A8F}.Release|x86.ActiveCfg = Release|Win32
 		{567FC49F-ECDF-4864-AC61-0B801FAC7A8F}.Release|x86.Build.0 = Release|Win32
+		{1BC1B93A-1EE7-4F94-8170-4EFDD010FBA6}.Debug|x64.ActiveCfg = Debug|x64
+		{1BC1B93A-1EE7-4F94-8170-4EFDD010FBA6}.Debug|x64.Build.0 = Debug|x64
+		{1BC1B93A-1EE7-4F94-8170-4EFDD010FBA6}.Debug|x86.ActiveCfg = Debug|Win32
+		{1BC1B93A-1EE7-4F94-8170-4EFDD010FBA6}.Debug|x86.Build.0 = Debug|Win32
+		{1BC1B93A-1EE7-4F94-8170-4EFDD010FBA6}.Release|x64.ActiveCfg = Release|x64
+		{1BC1B93A-1EE7-4F94-8170-4EFDD010FBA6}.Release|x64.Build.0 = Release|x64
+		{1BC1B93A-1EE7-4F94-8170-4EFDD010FBA6}.Release|x86.ActiveCfg = Release|Win32
+		{1BC1B93A-1EE7-4F94-8170-4EFDD010FBA6}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
