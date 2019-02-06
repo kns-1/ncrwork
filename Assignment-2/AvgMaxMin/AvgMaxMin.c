@@ -16,7 +16,7 @@ void main()
 			max = n;
 		}
 		count++;
-		if (n<min)
+		if (n < min)
 			min = n;
 		if (n > max)
 			max = n;
