@@ -17,6 +17,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GrossSal", "GrossSal\GrossS
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RotateRight", "RotateRight\RotateRight.vcxproj", "{7F249D92-F409-4EA3-A866-E4FF48AB7259}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AvgMaxMin", "AvgMaxMin\AvgMaxMin.vcxproj", "{25957B83-78BC-4BC3-AC38-06A4A81BCB16}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -81,6 +83,14 @@ Global
 		{7F249D92-F409-4EA3-A866-E4FF48AB7259}.Release|x64.Build.0 = Release|x64
 		{7F249D92-F409-4EA3-A866-E4FF48AB7259}.Release|x86.ActiveCfg = Release|Win32
 		{7F249D92-F409-4EA3-A866-E4FF48AB7259}.Release|x86.Build.0 = Release|Win32
+		{25957B83-78BC-4BC3-AC38-06A4A81BCB16}.Debug|x64.ActiveCfg = Debug|x64
+		{25957B83-78BC-4BC3-AC38-06A4A81BCB16}.Debug|x64.Build.0 = Debug|x64
+		{25957B83-78BC-4BC3-AC38-06A4A81BCB16}.Debug|x86.ActiveCfg = Debug|Win32
+		{25957B83-78BC-4BC3-AC38-06A4A81BCB16}.Debug|x86.Build.0 = Debug|Win32
+		{25957B83-78BC-4BC3-AC38-06A4A81BCB16}.Release|x64.ActiveCfg = Release|x64
+		{25957B83-78BC-4BC3-AC38-06A4A81BCB16}.Release|x64.Build.0 = Release|x64
+		{25957B83-78BC-4BC3-AC38-06A4A81BCB16}.Release|x86.ActiveCfg = Release|Win32
+		{25957B83-78BC-4BC3-AC38-06A4A81BCB16}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
