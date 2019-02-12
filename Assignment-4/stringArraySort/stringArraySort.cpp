@@ -3,7 +3,7 @@
 #include<stdio.h>
 #include<conio.h>
 #include<string.h>
-using namespace std;
+
 void main()
 {
 	char **s=NULL, *temp=NULL;
@@ -14,11 +14,12 @@ void main()
 	
 	printf("enter strings: \n");
 	for (i = 0; i < m; i++)
-	{		
+	{
 		temp = (char *)malloc(100 * sizeof(char));
 		scanf(" %[^\n]s", temp);//space is mandatory
-		s[i] = (char *)malloc((strlen(temp)+1) * sizeof(char));
+		s[i] = (char *)malloc((strlen(temp) + 1) * sizeof(char));
 		strcpy(s[i], temp);
+		free(temp);
 	}
 	
 	for (i = 0; i < m; i++)
@@ -40,7 +41,6 @@ void main()
 		printf("%s", s[i]);
 		printf("\n");
 	}
-	
 	free(s);
 
 	_getch();

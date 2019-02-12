@@ -19,7 +19,7 @@ int replace(char *s)
 void main()
 {
 //	char *cat = "The cat sat"; //gives error
-	char *cat, s[100]= "The cat sat";
+	char *cat = NULL, s[100]= "The cat sat";
 	int n;
 	cat = (char *)malloc(sizeof(char *));
 	strcpy(cat,s);
