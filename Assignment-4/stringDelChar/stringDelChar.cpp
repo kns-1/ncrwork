@@ -27,5 +27,6 @@ void main()
 	scanf_s(" %[^\n]s", s, 100);
 	
 	delchar(s, c);
+	free(s);
 	_getch();
 }

@@ -43,5 +43,7 @@ void main()
 		scanf_s(" %[^\n]s", s2[i]);
 	}
 	match(s1, s2, m, n);
+	free(s1);
+	free(s2);
 	_getch();
 }
