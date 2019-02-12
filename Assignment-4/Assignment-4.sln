@@ -27,6 +27,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "stringRotations", "stringRo
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "stringExpand", "stringExpand\stringExpand.vcxproj", "{DFEF44F1-3966-4ED4-A89B-00B9E4358927}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "strTok", "strTok\strTok.vcxproj", "{50F54554-E273-49D7-882C-D5DF0AD97810}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -131,6 +133,14 @@ Global
 		{DFEF44F1-3966-4ED4-A89B-00B9E4358927}.Release|x64.Build.0 = Release|x64
 		{DFEF44F1-3966-4ED4-A89B-00B9E4358927}.Release|x86.ActiveCfg = Release|Win32
 		{DFEF44F1-3966-4ED4-A89B-00B9E4358927}.Release|x86.Build.0 = Release|Win32
+		{50F54554-E273-49D7-882C-D5DF0AD97810}.Debug|x64.ActiveCfg = Debug|x64
+		{50F54554-E273-49D7-882C-D5DF0AD97810}.Debug|x64.Build.0 = Debug|x64
+		{50F54554-E273-49D7-882C-D5DF0AD97810}.Debug|x86.ActiveCfg = Debug|Win32
+		{50F54554-E273-49D7-882C-D5DF0AD97810}.Debug|x86.Build.0 = Debug|Win32
+		{50F54554-E273-49D7-882C-D5DF0AD97810}.Release|x64.ActiveCfg = Release|x64
+		{50F54554-E273-49D7-882C-D5DF0AD97810}.Release|x64.Build.0 = Release|x64
+		{50F54554-E273-49D7-882C-D5DF0AD97810}.Release|x86.ActiveCfg = Release|Win32
+		{50F54554-E273-49D7-882C-D5DF0AD97810}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
