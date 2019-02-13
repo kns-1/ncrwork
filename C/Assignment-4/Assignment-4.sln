@@ -31,6 +31,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "strTok", "strTok\strTok.vcx
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "stringLibFun", "stringLibFun\stringLibFun.vcxproj", "{49E333F1-6B6E-4F4D-B50A-2A2781CE39CB}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "strRevRecursion", "strRevRecursion\strRevRecursion.vcxproj", "{31C55BAC-D96D-4C5B-AEE0-0A38EF8B18EC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -151,6 +153,14 @@ Global
 		{49E333F1-6B6E-4F4D-B50A-2A2781CE39CB}.Release|x64.Build.0 = Release|x64
 		{49E333F1-6B6E-4F4D-B50A-2A2781CE39CB}.Release|x86.ActiveCfg = Release|Win32
 		{49E333F1-6B6E-4F4D-B50A-2A2781CE39CB}.Release|x86.Build.0 = Release|Win32
+		{31C55BAC-D96D-4C5B-AEE0-0A38EF8B18EC}.Debug|x64.ActiveCfg = Debug|x64
+		{31C55BAC-D96D-4C5B-AEE0-0A38EF8B18EC}.Debug|x64.Build.0 = Debug|x64
+		{31C55BAC-D96D-4C5B-AEE0-0A38EF8B18EC}.Debug|x86.ActiveCfg = Debug|Win32
+		{31C55BAC-D96D-4C5B-AEE0-0A38EF8B18EC}.Debug|x86.Build.0 = Debug|Win32
+		{31C55BAC-D96D-4C5B-AEE0-0A38EF8B18EC}.Release|x64.ActiveCfg = Release|x64
+		{31C55BAC-D96D-4C5B-AEE0-0A38EF8B18EC}.Release|x64.Build.0 = Release|x64
+		{31C55BAC-D96D-4C5B-AEE0-0A38EF8B18EC}.Release|x86.ActiveCfg = Release|Win32
+		{31C55BAC-D96D-4C5B-AEE0-0A38EF8B18EC}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

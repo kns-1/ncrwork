@@ -16,7 +16,7 @@ void stringToken(char *s, char t)
 }
 void main()
 {
-	char *s;
+	char *s=NULL;
 	char t;
 	s = (char *)malloc(100 * sizeof(char));
 	printf("enter token: ");
