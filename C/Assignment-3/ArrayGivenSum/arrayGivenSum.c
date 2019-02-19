@@ -29,7 +29,7 @@ void main()
 			break;
 	}
 	if (flag == 1)
-		printf("Sum found between indexes %d and %d", i, j);
+		printf("Sum found between indices %d and %d", i, j);
 	else
 		printf("No subarray found");
 	_getch();

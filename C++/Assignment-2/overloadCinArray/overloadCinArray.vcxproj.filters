@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="grossSal.c">
+    <ClCompile Include="overloadCinArray.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

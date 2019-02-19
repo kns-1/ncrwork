@@ -19,8 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{B70F38F0-77F7-4452-9377-7CEE309357FF}</ProjectGuid>
-    <RootNamespace>GrossSal</RootNamespace>
+    <ProjectGuid>{9918CA82-CBF0-4F90-8CB4-70D3E0282E35}</ProjectGuid>
+    <RootNamespace>overloadCoutCin</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -110,7 +110,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="grossSal.c" />
+    <ClCompile Include="overloadCoutCin.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

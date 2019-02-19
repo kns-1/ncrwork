@@ -20,11 +20,19 @@ public:
 	Employee(int i)
 	{
 		id = ph = i;
-		cout << "one ard constructor" << endl;
+		cout << "one arg constructor" << endl;
+	}
+	void callByValue(Employee e)
+	{
+		cout << "call by value" << endl;
+	}
+	void callByReference(Employee &e)
+	{
+		cout << "call by reference" << endl;
 	}
 	~Employee()
 	{
-		cout << "Destructor";
+		cout << "Destructor"<<endl;
 	}
 };
 
@@ -32,7 +40,9 @@ void main()
 {
 	Employee e1(10, 20);
 	Employee e2(30);
-	Employee e3;
-	e1.~Employee();
+	Employee e3,e4;
+	e3.callByValue(e4); //destructor is invoked
+	e3.callByReference(e4);
+//	e1.~Employee(); //explicit destructor calling
 	_getch();
 }
