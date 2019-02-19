@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\private.cpp">
+    <ClCompile Include="private.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

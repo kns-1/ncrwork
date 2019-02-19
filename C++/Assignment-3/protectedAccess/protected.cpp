@@ -27,9 +27,10 @@ void main()
 {
 	Base *ob;
 	ob = new Base();
-	//cout<<ob.pr; //not accessible as it is a protected member of the class
+	//cout<<ob->pr; //not accessible as it is a protected member of the base class
 	//ob = new Derived();// not possible as derived class is protectedly inheriting base class
 	Derived ob1;
+	//cout << ob1.pr;//not accessible as it is a protected member of the base class
 
 	_getch();
 }

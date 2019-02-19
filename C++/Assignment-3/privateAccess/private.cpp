@@ -30,7 +30,7 @@ void main()
 {
 	Base *ob;
 	ob = new Base();
-	//cout<<ob.pr; //not accessible as it is a private member of the base class
+	//cout<<ob->pr; //not accessible as it is a private member of the base class
 //	ob = new Derived();// not possible as derived class is privately inheriting base class
 	Derived ob1;
 
