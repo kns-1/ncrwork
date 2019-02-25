@@ -42,33 +42,38 @@ int stringCompare(const char *s, const char *temp)
 void main()
 {
 	char *s=NULL, *temp=NULL;
-	int n;
+	int n,ch;
 	s = (char *)malloc(100 * sizeof(char));
 	temp = (char *)malloc(100 * sizeof(char));
 	printf("enter string: ");
 	scanf_s(" %[^\n]s", s, 100);
-	printf("Enter choice: 1.strrev, 2.strcpy, 3.strcat, 4.strcmp, 5.exit\n");
-	scanf_s("%d", &n);
-	switch (n)
+	do
 	{
-	case 1:printf("\nReverse is: %s",stringReverse(s)); 
-		break;
-	case 2: printf("enter a string to copy: ");
-		scanf_s(" %[^\n]s", temp, 100);
-		stringCopy(s, temp); 
-		printf("\nCopied string is: %s", s);
-		break;
-	case 3: printf("enter a string to concat: ");
-		scanf_s(" %[^\n]s", temp, 100);
-		stringConcat(s, temp);
-		printf("\nConcatenated string is: %s", s);
-		break;
-	case 4: printf("enter a string to compare: ");
-		scanf_s(" %[^\n]s", temp, 100);
-		printf("\nComparison: %d", stringCompare(s, temp));
-		break;
-	default: printf("invalid choice");
-	}
+		printf("Enter choice: 1.strrev, 2.strcpy, 3.strcat, 4.strcmp, 5.exit\n");
+		scanf_s("%d", &n);
+		switch (n)
+		{
+		case 1:printf("\nReverse is: %s", stringReverse(s));
+			break;
+		case 2: printf("enter a string to copy: ");
+			scanf_s(" %[^\n]s", temp, 100);
+			stringCopy(s, temp);
+			printf("\nCopied string is: %s", s);
+			break;
+		case 3: printf("enter a string to concat: ");
+			scanf_s(" %[^\n]s", temp, 100);
+			stringConcat(s, temp);
+			printf("\nConcatenated string is: %s", s);
+			break;
+		case 4: printf("enter a string to compare: ");
+			scanf_s(" %[^\n]s", temp, 100);
+			printf("\nComparison: %d", stringCompare(s, temp));
+			break;
+		default: printf("invalid choice");
+		}
+		printf( "enter -1 to stop: ");
+		scanf_s("%d",&ch);
+	} while (ch != -1);
 	free(temp);
 	free(s);
 	_getch();

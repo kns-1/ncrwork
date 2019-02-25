@@ -134,7 +134,13 @@ void DLL<T>::remove()
 			temp->rlink = temp->rlink->rlink;
 			temp->rlink->rlink->llink = temp;
 			break; }
-		case 3: while (temp->rlink != last)
+		case 3: if (first->rlink == NULL)
+		{
+			cout << "Removed element is: " << temp->data << endl;
+			first = NULL;
+			break;
+		}
+			while (temp->rlink != last)
 			temp = temp->rlink;
 			cout << "Removed element is: " << temp->rlink->data << endl;
 			last = temp;

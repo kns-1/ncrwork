@@ -19,10 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{01CFE26E-4C20-4A29-B225-282A87155D5B}</ProjectGuid>
-    <RootNamespace>mergeLL</RootNamespace>
+    <ProjectGuid>{D60970C5-B088-4245-AAEC-8086A5BA6329}</ProjectGuid>
+    <RootNamespace>polynomialAdd</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
-    <ProjectName>sortedMergeLL</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -111,7 +110,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="mergeLL.cpp" />
+    <ClCompile Include="polynomialAdd.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -5,41 +5,62 @@ using namespace std;
 template<class T>
 class MLL
 {
+public:
 	struct node
 	{
 		T data;
 		struct node *link;
-	}*first, *last;
-public:
+	}*first, *last, *firstnn;
+
 	MLL()
 	{
-		first = NULL, last = NULL;
+		first = NULL, last = NULL, firstnn=NULL;
 	}
 
 	void create();
-	void display();
-	void merge(MLL<T> &l1,MLL<T> &l2);
+	void display(struct node *f);
+	void merge(MLL<T> &l2);
 };
 
 template<class T>
-void MLL<T>::merge(MLL<T> &l1, MLL<T> &l2)
+void MLL<T>::merge(MLL<T> &l2)
 {
-	struct node *nn = NULL, *t1 = l1.first, *t2 = l2.first;
-	while (t1->link!=NULL && t2->link!=NULL)
+	struct node *nn=NULL, *t1 = first , *t2 = l2.first, *temp=NULL;
+	
+	while (t1!=NULL && t2!=NULL)
 	{
-		nn = t2;
-		t2 = t2->link;
-		nn->link = t1->link;
-		t1->link = nn;
-		t1 = t1->link->link; //update t1
+		nn = new node;
+		nn->link = NULL;
+		if (firstnn == NULL)
+		{
+			firstnn = nn;
+			temp = nn;
+		}
+		else {
+			temp->link = nn;
+			temp = temp->link;
+		}
+		if (t1->data <= t2->data)
+		{
+			nn->data = t1->data;
+			t1 = t1->link;
+		}
+		else
+		{
+			nn->data = t2->data;
+			t2 = t2->link;
+		}
 	}
-	if (t1->link == NULL)
-		t1->link = t2;
-	else
+	if (t1 == NULL)
 	{
-		t2->link = t1->link;
-		t2 = t2->link;
+		temp->link = t2;
 	}
+	if (t2 == NULL)
+	{
+		temp->link = t1;
+	}
+	
+	display(firstnn);
 }
 
 template<class T>
@@ -70,16 +91,16 @@ void MLL<T>::create()
 }
 
 template<class T>
-void MLL<T>::display()
+void MLL<T>::display(struct node *f)
 {
-	if (first == NULL)
+	if (f == NULL)
 	{
 		cout << "list empty" << endl;;
 		return;
 	}
 	else
 	{
-		struct node *temp = first;
+		struct node *temp = f;
 		cout << "List is: ";
 		while (temp->link != NULL)
 		{
@@ -104,24 +125,27 @@ void main()
 			l1.create();
 			cout << "LIST - 2" << endl;
 			l2.create();
-			l1.merge(l1,l2);
-			l1.display();
+			l1.display(l1.first);
+			l2.display(l2.first);
+			l1.merge(l2);
 			break; }
 		case 2: { MLL<float> l3; MLL<float> l4;
 			cout << "LIST - 1" << endl;
 			l3.create();
 			cout << "LIST - 2" << endl;
 			l4.create();
-			l3.merge(l3,l4);
-			l3.display();
+			l3.display(l3.first);
+			l4.display(l4.first);
+			l3.merge(l4);
 			break; }
 		case 3: { MLL<float> l5; MLL<float> l6;
 			cout << "LIST - 1" << endl;
 			l5.create();
 			cout << "LIST - 2" << endl;
 			l6.create();
-			l5.merge(l5,l6);
-			l5.display();
+			l5.display(l5.first);
+			l6.display(l6.first);
+			l5.merge(l6);
 			break; }
 		}
 		cout << "enter -1 to stop: ";

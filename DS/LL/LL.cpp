@@ -127,7 +127,13 @@ void LL<T>::remove()
 			cout << "Removed element is: " << temp->link->data << endl;
 			temp->link = temp->link->link;
 			break;
-		case 3: while (temp->link != last)
+		case 3:if (first->link == NULL)
+		{
+			cout << "Removed element is: " << temp->data << endl;
+			first = NULL;
+			break;
+		}
+			while (temp->link != last)
 			temp = temp->link;
 			cout << "Removed element is: " << temp->link->data << endl;
 			last = temp;
