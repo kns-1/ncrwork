@@ -16,7 +16,7 @@ public:
 		root = NULL;
 	}
 	void insert();
-	//T deletion();
+	void deletion();
 	void search();
 	void display();
 	void read();
@@ -89,6 +89,78 @@ void Tree<T>::postorder(struct node *temp)
 	}
 }
 
+template<class T>
+void Tree<T>::deletion()
+{
+	if (root == NULL)
+	{
+		cout << "Tree empty" << endl;
+		return;
+	}
+	else
+	{
+		T ele;
+		int flag = 0;
+		cout << "enter element: ";
+		cin >> ele;
+		struct node *temp = root, *parent=NULL;
+		while(temp!=NULL)
+		{
+			
+			if (ele < temp->data)
+			{1
+				parent = temp;
+				temp = temp->lc;
+			}
+			else if(ele > temp->data)
+			{
+				parent = temp;
+				temp = temp->rc;
+			}
+			if (ele == temp->data)
+			{
+				flag = 1;
+				if (temp->lc == NULL && temp->rc == NULL) //leaf node
+				{
+					if (parent->lc == temp)
+						parent->lc = NULL;
+					else
+						parent->rc = NULL;
+					delete temp;
+				}
+
+				else if (temp->lc == NULL && temp->rc != NULL)  //one right child
+				{
+					parent->rc = temp->rc;
+					delete temp;
+				}
+				else if (temp->lc != NULL && temp->rc == NULL) //one left child
+				{
+					parent->lc = temp->lc;
+					delete temp;
+				}
+
+				else  //two children
+				{
+					struct node *max = temp->lc;
+					while (max->rc != NULL) //finding the largest element in the left subtree (Traverse right)
+						max = max->rc;
+					temp->data = max->data;
+					temp->lc = max->lc;
+					delete max;
+				}
+
+
+				break;
+			}
+		}
+		if (flag == 0)
+			cout << "element not found" << endl;
+
+	}
+	
+}
+
 
 template <class T>
 void Tree<T>::read()
@@ -96,13 +168,14 @@ void Tree<T>::read()
 	int n,ch;
 	do
 	{
-		cout << "enter 1.insert, 2.display, 3.search\n";
+		cout << "enter 1.insert, 2.display, 3.search, 4.delete\n";
 		cin >> n;
 		switch (n)
 		{
 		case 1:insert(); break;
 		case 2:display(); break;
 		case 3:search(); break;
+		case 4:deletion(); break;
 		}
 		cout << "enter -1 to exit menu: ";
 		cin >> ch;

@@ -41,6 +41,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "quickSort", "quickSort\quic
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "bst", "treePrint\treePrint.vcxproj", "{DD2049DA-084C-4088-A9B3-31D8CFEA3BD8}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "heapTree", "heapTree\heapTree.vcxproj", "{99F974C8-B06A-49C4-8FCE-66FCF00F1179}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -201,6 +203,14 @@ Global
 		{DD2049DA-084C-4088-A9B3-31D8CFEA3BD8}.Release|x64.Build.0 = Release|x64
 		{DD2049DA-084C-4088-A9B3-31D8CFEA3BD8}.Release|x86.ActiveCfg = Release|Win32
 		{DD2049DA-084C-4088-A9B3-31D8CFEA3BD8}.Release|x86.Build.0 = Release|Win32
+		{99F974C8-B06A-49C4-8FCE-66FCF00F1179}.Debug|x64.ActiveCfg = Debug|x64
+		{99F974C8-B06A-49C4-8FCE-66FCF00F1179}.Debug|x64.Build.0 = Debug|x64
+		{99F974C8-B06A-49C4-8FCE-66FCF00F1179}.Debug|x86.ActiveCfg = Debug|Win32
+		{99F974C8-B06A-49C4-8FCE-66FCF00F1179}.Debug|x86.Build.0 = Debug|Win32
+		{99F974C8-B06A-49C4-8FCE-66FCF00F1179}.Release|x64.ActiveCfg = Release|x64
+		{99F974C8-B06A-49C4-8FCE-66FCF00F1179}.Release|x64.Build.0 = Release|x64
+		{99F974C8-B06A-49C4-8FCE-66FCF00F1179}.Release|x86.ActiveCfg = Release|Win32
+		{99F974C8-B06A-49C4-8FCE-66FCF00F1179}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
