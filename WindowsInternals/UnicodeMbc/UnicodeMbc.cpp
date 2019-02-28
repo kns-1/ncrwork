@@ -1,6 +1,5 @@
 #include<Windows.h>
 #include<iostream>
-#include<conio.h>
 using namespace std;
 void main()
 {
@@ -15,10 +14,23 @@ void main()
 	WCHAR wString1[] = TEXT("wide windows string"); // it appends 'L' to the beginning === L"wide windows string"
 
 	//print normal C string
-//	cout << cChar << endl << cString << endl << cString1 << endl;
+	cout << cChar << endl << cString << endl << cString1 << endl;
 	//print wide string
-//	wcout << wChar << endl << wString << endl << wString1 << endl;
+	wcout << wChar << endl << wString << endl << wString1 << endl;
 	
+	//TCHAR usage == converts into CHAR or WCHAR on its own
+	/*
+	#include<tchar.h>
+	_tprintf(_T("%s"),var);
+	_tprintf(_T("%S"),var);
+	Format Specifiers: 
+	If system default is ANSI, %s = ANSI, %S = Unicode
+	If system default is Unicode, %s = Unicode, %S = ANSI
+	*/
+	TCHAR tString[] = TEXT("t char string");
+	wcout << tString << endl;
+
+
 
 	/* //printing using format specifiers
 	printf("%s\n", cString);
@@ -40,19 +52,38 @@ void main()
 	else
 		cout << "W String is Unicode" << endl;
 
+
+
 	//MBC to Wide char(Unicode) conversion
-/*	int returnValue = MultiByteToWideChar(CP_UTF8, MB_PRECOMPOSED, cString1, strlen(cString1)+1, NULL, 0);
+	int returnValue = MultiByteToWideChar(CP_UTF8, 0, cString1, -1, NULL, 0);
+	cout << "return value= " << returnValue << endl;
 	if (!returnValue)
-		cout << "Conversion fail" << endl;
+		cout << "MultiByte to WideChar Conversion failed, Error code is: " << GetLastError()<<endl;
 	else
 		cout << "Conversion successful"<<endl;
 	
-	
-	
-	
-	WCHAR *ptr=NULL;
-	cout<<"After conversion: "<< MultiByteToWideChar(CP_UTF8, MB_PRECOMPOSED, cString1, strlen(cString1) + 1, ptr , 0);
-	cout << endl << ptr; */
+		
+	WCHAR *ptr=new WCHAR[returnValue];
+	MultiByteToWideChar(CP_UTF8, 0, cString1, -1, ptr , returnValue);
+	wcout << "MultiByte to WideChar string is: " << ptr<<endl; 
+	delete[] ptr;
 
-	_getch();
+	returnValue = WideCharToMultiByte(CP_UTF8, 0, wString1, -1, NULL, 0, NULL, NULL);
+	cout << "return value= " << returnValue << endl;
+	if (!returnValue)
+		cout << "WideChar to MultiByte Conversion failed, Error code is: " << GetLastError()<<endl;
+	else
+		cout << "Conversion successful" << endl;
+
+	//CHAR *ptr = new CHAR[returnValue]; //if char ptr and wchar ptr are same, then "GetLastError" is invoked
+	CHAR *cptr = new CHAR[returnValue];
+	WideCharToMultiByte(CP_UTF8, 0, wString1, -1, cptr, returnValue, NULL, NULL);
+	wcout << "WideChar to MultiByte string is: " << cptr << endl;
+	delete[] cptr;
+
+	DWORD blah = 2000; //the given number is an error code
+	SetLastError(blah);
+	cout << "Error code is: "<< GetLastError() << endl;
+	//_getch();
+	system("pause"); //waits for a key to be pressed
 }
