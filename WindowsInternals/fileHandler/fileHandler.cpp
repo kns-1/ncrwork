@@ -1,13 +1,12 @@
 #include<Windows.h>
 #include<iostream>
 #define MAX_SIZE 100
-#include<tchar.h>
 using namespace std;
 void main()
 {
 	//HANDLE = It's an abstract reference value to a resource, often memory or an open file, or a pipe.
 	//creating a new file
-	HANDLE fHandler = CreateFile(TEXT("D:\\myfile1.txt"), GENERIC_WRITE, 0, NULL, CREATE_NEW, FILE_ATTRIBUTE_NORMAL, NULL);
+	HANDLE fHandler = CreateFile(TEXT("D:/myfile1.txt"), GENERIC_WRITE, 0, NULL, CREATE_NEW, FILE_ATTRIBUTE_NORMAL, NULL);
 	if (INVALID_HANDLE_VALUE == fHandler)
 	{
 		cout << "Error code of 1st CreateFile() is: " << GetLastError() << endl;
