@@ -21,11 +21,12 @@ void main(int argc, LPWSTR *argv)
 		exit(0);
 	}
 	cout << "CHILD-1 \nReturn value of CreateProcess() is: " << returnValueProcess << endl;
+	WaitForSingleObject(processInfo.hProcess, INFINITE); // waits for the first process/application to be closed, only then the next process is executed.
 
 	cout << "Startup Info size is: " << sizeof(startupInfo)<< endl;
 	cout << "Process Info size is : " << sizeof(processInfo) << endl;
 	cout << "Process ID is : " << processInfo.dwProcessId<< endl;
-	cout << "Process Tread ID is : " << processInfo.dwThreadId << endl;
+	cout << "Process Thread ID is : " << processInfo.dwThreadId << endl;
 	
 	cout << "Current Process ID: " << GetCurrentProcessId() << endl;
 	cout << "Current Thread ID: " << GetCurrentThreadId() << endl;
@@ -33,7 +34,6 @@ void main(int argc, LPWSTR *argv)
 	cout << "Get Thread ID: " << GetThreadId << endl;
 	cout << "Process ID of Thread: " << GetProcessIdOfThread << endl;
 
-	WaitForSingleObject(processInfo.hProcess, INFINITE); // waits for the first process/application to be closed, only then the next process is executed.
 	CloseHandle(processInfo.hProcess);
 	CloseHandle(processInfo.hThread);
 	
@@ -47,11 +47,12 @@ void main(int argc, LPWSTR *argv)
 		exit(0);
 	}
 	cout << "CHILD-2 \nReturn value of CreateProcess() is: " << returnValueProcess1 << endl;
+	WaitForSingleObject(processInfo1.hProcess, INFINITE);
 
 	cout << "Startup Info size is: " << sizeof(startupInfo1) << endl;
 	cout << "Process Info is : " << sizeof(processInfo1) << endl;
 	cout << "Process ID is : " << processInfo1.dwProcessId << endl;
-	cout << "Process Tread ID is : " << processInfo1.dwThreadId << endl;
+	cout << "Process Thread ID is : " << processInfo1.dwThreadId << endl;
 
 	cout << "Current Process ID: " << GetCurrentProcessId() << endl;
 	cout << "Current Thread ID: " << GetCurrentThreadId() << endl;
@@ -59,7 +60,6 @@ void main(int argc, LPWSTR *argv)
 	cout << "Get Thread ID: " << GetThreadId << endl;
 	cout << "Process ID of Thread: " << GetProcessIdOfThread << endl;
 
-	WaitForSingleObject(processInfo1.hProcess, INFINITE);
 	CloseHandle(processInfo1.hProcess);
 	CloseHandle(processInfo1.hThread);
 	system("pause");

@@ -19,10 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{45BAF86F-AD95-4A80-B890-D0039BE403CD}</ProjectGuid>
-    <RootNamespace>Calculator</RootNamespace>
+    <ProjectGuid>{EA1E8826-C520-4187-B1D5-3B1383BFD8B1}</ProjectGuid>
+    <RootNamespace>RealCalculator</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
-    <ProjectName>Arithmetic</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -111,11 +110,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="add.c" />
-    <ClCompile Include="cal.c" />
-    <ClCompile Include="div.c" />
-    <ClCompile Include="mul.c" />
-    <ClCompile Include="sub.c" />
+    <ClCompile Include="realCalculator.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="realCalculator.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
