@@ -24,8 +24,21 @@ char pop_operator()
 {
 	return operator_stack[top_operator--];
 }
+
 void evaluate()
 {
+	if ('-' == operator_stack[top_operator])
+	{
+		if ('-' == operator_stack[top_operator - 1])
+			operator_stack[top_operator] = '+';
+		cout << "OPERATOR_STACK eval - = " << operator_stack[top_operator] << endl;
+	}
+	else if ('+' == operator_stack[top_operator])
+	{
+		if ('-' == operator_stack[top_operator - 1])
+			operator_stack[top_operator] = '-';
+		cout << "OPERATOR_STACK eval + = " << operator_stack[top_operator] << endl;
+	}
 	int op2 = 0, op1 = 0;
 	op2 = pop_operand();
 	op1 = pop_operand();
@@ -37,7 +50,16 @@ void evaluate()
 	if ('*' == ele)
 		result = op1 * op2;
 	if ('/' == ele)
+	{
+		if (0 == op2)
+		{
+			cout << "Divide by Zero exception is caused, Terminating application\n";
+			system("pause");
+			exit(0);
+		}
 		result = op1 / op2;
+	}
+	cout << "RESULT_STACK = " << result << endl;
 	push_operand(result);
 }
 
@@ -61,9 +83,9 @@ void main()
 {
 	char *str = NULL;
 	
-		int i = 0, temp_ctoi = 1, start_flag = 0, minus_flag=0;
+	int i = 0, temp_ctoi = 1, start_flag = 0, minus_flag = 0;// plus_flag = 0;
 		str = (char *)malloc(MAX * sizeof(char));
-		cout << "enter string, enter '#' to stop: ";
+		cout << "enter string: ";
 		cin >> str;
 		cout << "entered string is: ";
 		cout << str << "\n" << "length = " << strlen(str) << "\n";
@@ -72,6 +94,7 @@ void main()
 			start_flag = 1;
 			i++;
 		}
+		
 
 		while (i < strlen(str))
 		{
@@ -90,6 +113,7 @@ void main()
 					start_flag = 0;
 				}
 				push_operand(temp_ctoi);
+				cout << "is DIGIT = " << temp_ctoi << endl;
 				temp_ctoi = 1;
 
 			}//if(isdigit(str[i]))
@@ -101,8 +125,10 @@ void main()
 
 					if ('-' == str[i] && isdigit(str[i + 1]))
 					{
-						if ('-' == str[i - 1])
-							minus_flag = 1;
+						/*if ('-' == str[i - 1])
+							minus_flag = 1;*/
+						/*if ('+' == str[i - 1])
+							plus_flag = 1;*/
 						i++;
 						temp_ctoi = (str[i] - '0');
 						i++;
@@ -111,30 +137,44 @@ void main()
 							temp_ctoi = temp_ctoi * 10 + (str[i] - '0');
 							i++;
 						}
-						if(0 == minus_flag)
+						//if(0 == minus_flag)
 						temp_ctoi = -temp_ctoi;
 						push_operand(temp_ctoi);
+						/*if (1 == plus_flag)
+						{
+							operator_stack[top_operator] = '-';
+							plus_flag = 0;
+						}*/
 						temp_ctoi = 1;
 						minus_flag = 0;
 					}
 					else if ('-' == str[i] && isOperator(str[i + 1]))
 					{
-						operator_stack[top_operator] = str[i + 1];
-						i += 2;
+						if ('*' != operator_stack[top_operator] && '/' != operator_stack[top_operator])
+						{
+							operator_stack[top_operator] = str[i + 1];
+							i += 2;
+						}
+						cout << "OPERATOR_STACK - op = " << operator_stack[top_operator] << endl;
+						i++;
+						
 					}
 					else if ('+' == str[i])
 					{
 						operator_stack[top_operator] = str[i];
+						cout << "OPERATOR_STACK + = " << operator_stack[top_operator] << endl;
 						i++;
 					}
 					else if ('*' == str[i])
 					{
 						operator_stack[top_operator] = str[i];
+						cout << "OPERATOR_STACK * = " << operator_stack[top_operator] << endl;
 						i++;
 					}
 					else if ('/' == str[i])
 					{
 						operator_stack[top_operator] = str[i];
+						cout << "OPERATOR_STACK / = " << operator_stack[top_operator] << endl;
 						i++;
 					}
 					else
