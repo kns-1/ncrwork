@@ -60,7 +60,7 @@ int isOperator(char ele)
 void main()
 {
 	char *str = NULL;
-	int i = 0, temp_ctoi = 1, start_flag=0;
+	int i = 0, temp_ctoi = 1, start_flag = 0, minus_flag = 0;
 	str = (char *)malloc(MAX * sizeof(char));
 	cout << "enter string: ";
 	cin >> str;
@@ -100,6 +100,8 @@ void main()
 
 				if ('-' == str[i] && isdigit(str[i+1]))
 				{
+					if ('-' == str[i - 1])
+						minus_flag = 1;
 					i++;
 					temp_ctoi = (str[i] - '0');
 					i++;
@@ -108,9 +110,11 @@ void main()
 						temp_ctoi = temp_ctoi * 10 + (str[i] - '0');
 						i++;
 					}
-					temp_ctoi = -temp_ctoi;
+					if (0 == minus_flag)
+						temp_ctoi = -temp_ctoi;
 					push_operand(temp_ctoi);
 					temp_ctoi = 1;
+					minus_flag = 0;
 				}
 				else if ('-' == str[i] && isOperator(str[i+1]))
 				{
