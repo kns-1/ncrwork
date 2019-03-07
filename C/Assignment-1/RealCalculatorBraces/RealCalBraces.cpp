@@ -31,18 +31,21 @@ void evaluate()
 	{
 		if ('-' == operator_stack[top_operator - 1])
 			operator_stack[top_operator] = '+';
-		cout << "OPERATOR_STACK eval - = " << operator_stack[top_operator] << endl;
+	//	cout << "OPERATOR_STACK eval - = " << operator_stack[top_operator] << endl;
 	}
 	else if ('+' == operator_stack[top_operator])
 	{
 		if ('-' == operator_stack[top_operator - 1])
 			operator_stack[top_operator] = '-';
-		cout << "OPERATOR_STACK eval + = " << operator_stack[top_operator] << endl;
+		//cout << "OPERATOR_STACK eval + = " << operator_stack[top_operator] << endl;
 	}
 	int op2 = 0, op1 = 0;
 	op2 = pop_operand();
+//	cout << op2;
 	op1 = pop_operand();
+	//cout << op1;
 	char ele = pop_operator();
+	//cout << ele;
 	if ('+' == ele)
 		result = op1 + op2;
 	if ('-' == ele)
@@ -59,7 +62,7 @@ void evaluate()
 		}
 		result = op1 / op2;
 	}
-	cout << "RESULT_STACK = " << result << endl;
+	//cout << "RESULT_STACK = " << result << endl;
 	push_operand(result);
 }
 
@@ -83,17 +86,27 @@ void main()
 {
 	char *str = NULL;
 	
-	int i = 0, temp_ctoi = 1, start_flag = 0, minus_flag = 0;// plus_flag = 0;
+	int i = 0, temp_ctoi = 1, start_flag = 0;// minus_flag = 0, plus_flag = 0;
 		str = (char *)malloc(MAX * sizeof(char));
 		cout << "enter string: ";
 		cin >> str;
 		cout << "entered string is: ";
 		cout << str << "\n" << "length = " << strlen(str) << "\n";
-		if ('-' == str[0])
-		{
-			start_flag = 1;
-			i++;
-		}
+		
+			i = 0;
+			while (!isdigit(str[i]))
+			{
+				if ('*' == str[i] || '/' == str[i])
+				{
+					cout << "invalid expression, expression must start with a valid integer\nTerminating application\n";
+					system("pause");
+					exit(0);
+				}
+				i++;
+			}
+			if ('-' == str[i - 1])
+				start_flag = 1; 
+			//i = 1;
 		
 
 		while (i < strlen(str))
@@ -113,7 +126,7 @@ void main()
 					start_flag = 0;
 				}
 				push_operand(temp_ctoi);
-				cout << "is DIGIT = " << temp_ctoi << endl;
+			//	cout << "is DIGIT = " << temp_ctoi << endl;
 				temp_ctoi = 1;
 
 			}//if(isdigit(str[i]))
@@ -146,7 +159,7 @@ void main()
 							plus_flag = 0;
 						}*/
 						temp_ctoi = 1;
-						minus_flag = 0;
+						//minus_flag = 0;
 					}
 					else if ('-' == str[i] && isOperator(str[i + 1]))
 					{
@@ -155,26 +168,26 @@ void main()
 							operator_stack[top_operator] = str[i + 1];
 							i += 2;
 						}
-						cout << "OPERATOR_STACK - op = " << operator_stack[top_operator] << endl;
+					//	cout << "OPERATOR_STACK - op = " << operator_stack[top_operator] << endl;
 						i++;
 						
 					}
 					else if ('+' == str[i])
 					{
 						operator_stack[top_operator] = str[i];
-						cout << "OPERATOR_STACK + = " << operator_stack[top_operator] << endl;
+					//	cout << "OPERATOR_STACK + = " << operator_stack[top_operator] << endl;
 						i++;
 					}
 					else if ('*' == str[i])
 					{
 						operator_stack[top_operator] = str[i];
-						cout << "OPERATOR_STACK * = " << operator_stack[top_operator] << endl;
+						//cout << "OPERATOR_STACK * = " << operator_stack[top_operator] << endl;
 						i++;
 					}
 					else if ('/' == str[i])
 					{
 						operator_stack[top_operator] = str[i];
-						cout << "OPERATOR_STACK / = " << operator_stack[top_operator] << endl;
+						//cout << "OPERATOR_STACK / = " << operator_stack[top_operator] << endl;
 						i++;
 					}
 					else
@@ -206,7 +219,7 @@ void main()
 
 			}
 		} //main while
-
+		//cout << "\ntop="<<top_operator;
 		if (top_operator > -1)
 		{
 			while (top_operator > -1)
