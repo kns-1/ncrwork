@@ -1,0 +1,31 @@
+<HTML>
+<HEAD>
+<META NAME="GENERATOR" Content="Microsoft Visual Studio">
+<TITLE>Calculator</TITLE>
+</HEAD>
+<BODY align="center">
+    <form>
+        <label>Enter number 1: </label>
+        <input id="entry_1" type="number" required />
+        <br /><br />
+        <label>Enter number 2: </label>
+        <input id="entry_2" type="number" required />
+        <br /><br />
+        <button id="add_button" type="button" onclick="add_function()"> + </button>
+        <br /><br />
+        <label>Result: </label>
+        <b> <output id="result"></output> </b> 
+
+    </form>
+
+<script>
+    function add_function()
+    {
+        var num1 = document.getElementById("entry_1").value; //convert from string to number
+        var num2 = document.getElementById("entry_2").value;
+        document.getElementById("result").innerHTML = Number(num1) + Number(num2); //+num1 + +num2;
+    }
+</script>
+
+</BODY>
+</HTML>

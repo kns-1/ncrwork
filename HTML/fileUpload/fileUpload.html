@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>File Upload</title>
+	<meta charset="utf-8" />
+</head>
+<body align="center">
+    <input id="choose_file" type="file" accept=".docx" onchange="show_file_size()" />
+    <br /><br />
+
+    <label>File size is: </label>
+    <output id="result"></output>
+    <script>
+        function show_file_size()
+        {
+            var my_file = document.getElementById("choose_file");
+            for (var i = 0; i <= my_file.files.length - 1; i++)
+                var file_size = my_file.files.item(i).size;
+            document.getElementById("result").innerHTML = Math.round((file_size / 1024)) + ' KB';
+        }
+    </script>
+
+</body>
+</html>
