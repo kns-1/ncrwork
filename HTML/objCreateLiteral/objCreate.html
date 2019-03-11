@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Object Creation</title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <button id="my_button" onclick="car_details()">Get Car Details</button>
+    <br /><br />
+
+    <output id="car_name"></output>
+    <br /><br />
+    <output id="car_model"></output>
+    <br /><br />
+    <output id="car_color"></output>
+    <br /><br />
+    <output id="car_price"></output>
+    <script>
+       
+        function car_details()
+        {
+            var car = new Object(); //cretion of object using literal
+            car.name = "lamborghini";
+            car.model = "aventador";
+            car['color'] = "blue"; //second way of defining property
+            car['price'] = "$400,000";
+            //document.getElementById("car_name").innerHTML = "Name: " + car.name;
+            //document.getElementById("car_model").innerHTML = "Model: " + car['model'];
+            //document.getElementById("car_color").innerHTML = "Color: " + car.color;
+            //document.getElementById("car_price").innerHTML = "Price: " + car['price'];
+
+
+            var car2 = Object.create(car); //creation of object using create() constructor
+            document.getElementById("car_name").innerHTML = "Name: " + car2.name;
+            document.getElementById("car_model").innerHTML = "Model: " + car2['model'];
+            document.getElementById("car_color").innerHTML = "Color: " + car2.color;
+            document.getElementById("car_price").innerHTML = "Price: " + car2['price'];
+
+        }
+    </script>
+</body>
+</html>

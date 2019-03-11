@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Address Form</title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <form id="temporary_address">
+        <label>Temporary Address: </label> <br /><br />
+        
+        <label>House Number: </label>
+        <input id="house_no1" type="text" required/> <br /><br />
+
+        <label>Street Name: </label>
+        <input id="street1" type="text" required/> <br /><br />
+
+        <label>Landmark: </label>
+        <input id="landmark1" type="text" /> <br /><br />
+       
+         <label>State: </label>
+        <select id="state1" required>
+            <option>Telangana</option>
+            <option>Karnataka</option>
+            <option>Kerala</option>
+            <option>Tamilnadu</option>
+            <option>West Bengal</option>
+        </select>
+        <br /><br />
+
+        <label>City: </label>
+        <select id="city1" required>
+            <option>Hyderabad</option>
+            <option>Warangal</option>
+            <option>Visakhapatnam</option>
+            <option>Vijayawada</option>
+            <option>Tirupati</option>
+        </select>
+        <br /><br />
+        
+        <label>Mandal: </label>
+        <select id="mandal1">
+            <option>Secunderabad</option>
+            <option>Ameerpet</option>
+            <option>Nampally</option>
+            <option>Charminar</option>
+            <option>Golconda</option>
+        </select>
+        <br /><br />
+
+        <label>Pin Code: </label>
+        <input id="pin_code1" type="number" maxlength="6" required/> <br /><br />
+
+        <label>Same as Temporary Address</label>
+        <input id="same_address" type="checkbox" onclick="copy_details()"/>
+ 
+        </form>
+
+    <form id="permanent_address">
+        <label>Temporary Address: </label> <br /><br />
+
+        <label>House Number: </label>
+        <input id="house_no2" type="text" required /> <br /><br />
+
+        <label>Street Name: </label>
+        <input id="street2" type="text" required /> <br /><br />
+
+        <label>Landmark: </label>
+        <input id="landmark2" type="text" /> <br /><br />
+
+        <label>State: </label>
+        <select id="state2" required>
+            <option>Telangana</option>
+            <option>Karnataka</option>
+            <option>Kerala</option>
+            <option>Tamilnadu</option>
+            <option>West Bengal</option>
+        </select>
+        <br /><br />
+
+        <label>City: </label>
+        <select id="city2" required>
+            <option>Hyderabad</option>
+            <option>Warangal</option>
+            <option>Visakhapatnam</option>
+            <option>Vijayawada</option>
+            <option>Tirupati</option>
+        </select>
+        <br /><br />
+
+        <label>Mandal: </label>
+        <select id="mandal2">
+            <option>Secunderabad</option>
+            <option>Ameerpet</option>
+            <option>Nampally</option>
+            <option>Charminar</option>
+            <option>Golconda</option>
+        </select>
+        <br /><br />
+
+        <label>Pin Code: </label>
+        <input id="pin_code2" type="number" maxlength="6" required /> <br /><br />
+
+    </form>
+
+    <script>
+        function copy_details()
+        {
+
+        }
+    </script>
+
+</body>
+</html>

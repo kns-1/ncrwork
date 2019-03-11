@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Time out</title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <button id="my_button" onclick="timer_function()">Start Timer</button>
+    <br /><br />
+    <label>Message is displayed after a few seconds set by the timer: </label>
+    <output id="result"></output>
+
+    <script>
+        function timer_function()
+        {
+            var counter = 0;
+            setTimeout(function () {
+              
+                document.getElementById("result").innerHTML = "Welcome!";
+
+            }, 5000); //display after 5 seconds
+        }
+    </script>
+</body>
+</html>
