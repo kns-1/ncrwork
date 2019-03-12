@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Button jQuery</title>
+    <meta charset="utf-8" />
+
+    <script src="jquery-3.3.1.js">
+    </script>
+
+</head>
+<body align="center">
+
+    <button id="my_button" type="button"> Click! </button>
+    <br /><br />
+
+    <b> <output id="result" style="font-family: 'Lucida Calligraphy'"></output> </b>
+
+    <script type="text/javascript">
+
+            $(document).ready(function () {
+
+                $("#my_button").click(function () {
+
+                    $("#result").text("Forever we are young, Even when I fall and hurt myself, I endlessly run towards my dream");
+                });
+
+            });
+
+    </script>
+</body>
+</html>

@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eventListener", "eventListe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "jQueryAddress", "jQueryAddress\jQueryAddress.csproj", "{2B3755D0-B761-4197-A63F-8105628E6512}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "jQueryButton", "jQueryButton\jQueryButton.csproj", "{F51A9AB4-2856-4A90-AC04-FCCD9BAE17D8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -165,6 +167,18 @@ Global
 		{2B3755D0-B761-4197-A63F-8105628E6512}.Release|x64.Build.0 = Release|Any CPU
 		{2B3755D0-B761-4197-A63F-8105628E6512}.Release|x86.ActiveCfg = Release|Any CPU
 		{2B3755D0-B761-4197-A63F-8105628E6512}.Release|x86.Build.0 = Release|Any CPU
+		{F51A9AB4-2856-4A90-AC04-FCCD9BAE17D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F51A9AB4-2856-4A90-AC04-FCCD9BAE17D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F51A9AB4-2856-4A90-AC04-FCCD9BAE17D8}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{F51A9AB4-2856-4A90-AC04-FCCD9BAE17D8}.Debug|x64.Build.0 = Debug|Any CPU
+		{F51A9AB4-2856-4A90-AC04-FCCD9BAE17D8}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F51A9AB4-2856-4A90-AC04-FCCD9BAE17D8}.Debug|x86.Build.0 = Debug|Any CPU
+		{F51A9AB4-2856-4A90-AC04-FCCD9BAE17D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F51A9AB4-2856-4A90-AC04-FCCD9BAE17D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F51A9AB4-2856-4A90-AC04-FCCD9BAE17D8}.Release|x64.ActiveCfg = Release|Any CPU
+		{F51A9AB4-2856-4A90-AC04-FCCD9BAE17D8}.Release|x64.Build.0 = Release|Any CPU
+		{F51A9AB4-2856-4A90-AC04-FCCD9BAE17D8}.Release|x86.ActiveCfg = Release|Any CPU
+		{F51A9AB4-2856-4A90-AC04-FCCD9BAE17D8}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

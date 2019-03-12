@@ -1,12 +1,16 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title>Address Form</title>
+    <title>Address Form jQuery</title>
 	<meta charset="utf-8" />
+
+    <script src="jquery-3.3.1.js">
+    </script>
+
 </head>
 <body>
-    <form id="temporary_address">
-        <label>Temporary Address: </label> <br /><br />
+    <form id="current_address">
+        <label>Current Address: </label> <br /><br />
         
         <label>House Number: </label>
         <input id="house_no1" type="text" required/> <br /><br />
@@ -50,13 +54,24 @@
         <label>Pin Code: </label>
         <input id="pin_code1" type="number" maxlength="6" required/> <br /><br />
 
-        <label>Same as Temporary Address</label>
-        <input id="same_address" type="checkbox" onclick="copy_details()"/>
- 
-        </form>
+    </form>
+    <br /><br />
+    <br /><br />
+    
+    <button id="hide_button">Hide</button>
+   
+    <br />
+    <br />
+
 
     <form id="permanent_address">
-        <label>Temporary Address: </label> <br /><br />
+
+        <label>Permanent Address: </label> <br /><br />
+
+        <input id="same_address_checkbox" type="checkbox" />
+        <label>Same as Current Address</label>
+        <br /><br />
+
 
         <label>House Number: </label>
         <input id="house_no2" type="text" required /> <br /><br />
@@ -103,10 +118,44 @@
     </form>
 
     <script>
-        function copy_details()
-        {
+        var flag = 0;
+        $("#hide_button").click(function () {
+      
+            $("#permanent_address").toggle();
+            if(0 == flag)
+            {
+                $(this).text("Show");
+                flag = 1;
+            }
+            else
+            {
+                $(this).text("Hide");
+                flag = 0;
+            }
+        });
 
-        }
+        $("#same_address_checkbox").click(function () {
+            if ($(this).is(":checked")) {
+                $("#house_no2").val($("#house_no1").val());
+                $("#street2").val($("#street1").val());
+                $("#landmark2").val($("#landmark1").val());
+                $("#state2").val($("#state1").val());
+                $("#city2").val($("#city1").val());
+                $("#mandal2").val($("#mandal1").val());
+                $("#pin_code2").val($("#pin_code1").val());
+            }
+            else
+            {
+                $("#house_no2").val("");
+                $("#street2").val("");
+                $("#landmark2").val("");
+                $("#state2").val("");
+                $("#city2").val("");
+                $("#mandal2").val("");
+                $("#pin_code2").val("");
+            }
+        });
+       
     </script>
 
 </body>
