@@ -7,53 +7,34 @@
 <body style="background-color:mediumspringgreen; font-family: 'Lucida Handwriting'">
     <form>
         <b>  <label>Photo: </label></b> <br />
-        <input id="image1" type="file" accept=".jpg,.jpeg" />
+        <input id="image1" type="file" accept="image/*"  />
         <br /><br />
-
+        
         <b><label>Name: </label></b>
         <input id="name1" type="text" required/>
         <br /><br />
 
-        <b><label id="dob">DoB (DD-MM-YY): </label></b> 
-        <select id="date">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-        </select>
-
-        <select id="month">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-        </select>
-
-        <select id="year">
-            <option value="1996">1996</option>
-            <option value="1997">1997</option>
-            <option value="1998">1998</option>
-            <option value="1999">1999</option>
-            <option value="2000">2000</option>
-        </select>
+        <b><label>Date of Birth: </label></b> 
+        <input id="dob" type="date" onchange="get_age()" required />
         <br /><br />
 
         <b><label>Age: </label></b> 
         <input id="age" type="number" disabled/>
         <br /><br />
 
-       <b> <label>Gender: </label></b> <br />
-        <input type="radio" name="gender" value="male" />Male<br />
-        <input type="radio" name="gender" value="female" />Female<br />
-        <input type="radio" name="gender" value="others" />Others<br />
+     <b> <label>Gender: </label></b> <br />
+        <div id="gender">
+            <input type="radio" name="gender" value="male" />Male<br />
+            <input type="radio" name="gender" value="female" />Female<br />
+            <input type="radio" name="gender" value="others" />Others<br />
+        </div>
         <br /><br />
-      
+     
 
         <button id="submit_button" type="submit" onclick="display_details()" >Register</button>   
-        <br /><br />
+        <br /><br /> 
 
+       <img id="output" />
         <output id="display_photo"></output> <br />
         <output id="display_name"></output> <br />
         <output id="display_dob"></output> <br />
@@ -65,25 +46,41 @@
   
 
     <script>
+
+        var my_dob = null, my_age = null;
+       
+        function get_age()
+        {
+            my_dob = document.getElementById("dob").value;
+            var today = new Date();
+            var dob_obj = new Date(my_dob);
+            my_age = today.getFullYear() - dob_obj.getFullYear();
+            var m = today.getMonth() - dob_obj.getMonth();
+            if (m < 0 || (m === 0 && today.getDate() < dob_obj.getDate())) {
+                my_age = my_age - 1;
+            }
+            document.getElementById("age").value = my_age;
+        }
         function display_details()
         {
-            var my_image = document.getElementById("image1");
-            document.getElementById("display_photo").innerHTML = "Photo: " + my_image;
+            //   var my_image = document.getElementById("image1");
+            // document.getElementById("display_photo").innerHTML = "Photo: " + my_image;
 
-            var my_name = document.getElementById("name1");
+            var my_name = document.getElementById("name1").value;
             document.getElementById("display_name").innerHTML = "Name: " + my_name;
 
-            var my_date = document.getElementById("date").value;
-            var my_month = document.getElementById("month").value;
-            var my_year = document.getElementById("year").value;
 
-            document.getElementById("display_dob").innerHTML = "DoB: " + my_date + "-" + my_month + "-" + my_year;
+            document.getElementById("display_dob").innerHTML = "DoB: " + my_dob;
 
-            var my_age = document.getElementById("age").value;
-            document.getElementById("display_age").innerHTML = "Age: " + +my_age;
 
-            var my_gender = document.getElementById("gender");
-            document.getElementById("display_age").innerHTML = "Gender: " + my_gender;           
+            document.getElementById("display_age").innerHTML = "Age: " + my_age;
+
+
+
+            // var my_gender = document.getElementById("gender").value;
+            var my_gender = document.querySelector('input[name=gender]:checked').value
+
+            document.getElementById("display_gender").innerHTML = "Gender: " + my_gender;
         }
     </script>
 </body>
