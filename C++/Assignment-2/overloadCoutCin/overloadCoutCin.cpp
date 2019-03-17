@@ -1,60 +1,79 @@
 #include<iostream>
 #include<conio.h>
 #include<string>
+#define STUDENT_COUNT 2
 using namespace std;
+
 class Student
 {
-	int rno, m1,m2, total;
+	int stud_id, marks1, marks2, total_marks;
 	char grade;
-	string name;
+	string stud_name;
+
 public:
-	friend void generate_results(Student s[], int n);
-	friend istream& operator >> (istream& cin, Student &s);
-	friend ostream& operator<<(ostream& cout, Student s);
+	friend void generate_results(Student stud_obj[]);
+	friend istream& operator >> (istream& cin, Student &stud_obj);
+	friend ostream& operator<<(ostream& cout, Student stud_obj);
 };
-istream& operator >> (istream& cin, Student &s)
+
+
+istream& operator >> (istream& cin, Student &stud_obj)
 {
-	cout << "enter rno and name (spaces seperated): ";
-	cin >> s.rno;
-	getline(cin,s.name);
+	cout << "enter stud_id and stud_name (spaces seperated): ";
+	cin >> stud_obj.stud_id;
+
+	getline(cin, stud_obj.stud_name);
+
 	cout << "enter 2 marks: ";
-	cin >> s.m1 >> s.m2;
-	s.total = s.m1 + s.m2;
+	cin >> stud_obj.marks1 >> stud_obj.marks2;
+
+	stud_obj.total_marks = stud_obj.marks1 + stud_obj.marks2;
+
 	return cin;
 }
-ostream& operator<<(ostream& cout, Student s)
+
+
+ostream& operator<<(ostream& cout, Student stud_obj)
 {
 	cout << "Student Details:" << endl;
-	cout << "Name: " << s.name << endl << "Roll number: " << s.rno << endl;
-	cout << "Marks: m1 = " << s.m1 << ", m2 = " << s.m2 << endl;
-	cout << "Total = " << s.total<<endl;
-	cout << "Grade = " << s.grade << endl << endl;
+	cout << "stud_name: " << stud_obj.stud_name << endl << "Roll number: " << stud_obj.stud_id << endl;
+	cout << "Marks: marks1 = " << stud_obj.marks1 << ", marks2 = " << stud_obj.marks2 << endl;
+	cout << "total_marks = " << stud_obj.total_marks<<endl;
+	cout << "Grade = " << stud_obj.grade << endl << endl;
 	return cout;
 }
-void generate_results(Student s[], int n)
+
+
+void generate_results(Student stud_obj[])
 {
-	for (int i = 0; i < n; i++)
+	for (int i = 0; i < STUDENT_COUNT; i++)
 	{
-		if (s[i].total >= 15)
-			s[i].grade = 'A';
-		else if (s[i].total >= 10 && s[i].total < 15)
-			s[i].grade = 'B';
-		else if (s[i].total >= 5 && s[i].total < 10)
-			s[i].grade = 'C';
+		if (stud_obj[i].total_marks >= 15)
+			stud_obj[i].grade = 'A';
+
+		else if (stud_obj[i].total_marks >= 10 && stud_obj[i].total_marks < 15)
+			stud_obj[i].grade = 'B';
+
+		else if (stud_obj[i].total_marks >= 5 && stud_obj[i].total_marks < 10)
+			stud_obj[i].grade = 'C';
+
 		else
-			s[i].grade = 'F';
+			stud_obj[i].grade = 'F';
 	}
 	
 }
 
 void main()
 {
-	const int n=2;
-	Student s1[n];
-	for (int i = 0; i < n; i++)
-		cin >> s1[i];
-	generate_results(s1, n);
-	for (int i = 0; i<n; i++)
-		cout << s1[i];
+	Student stud_obj[STUDENT_COUNT];
+
+	for (int i = 0; i < STUDENT_COUNT; i++)
+		cin >> stud_obj[i];
+
+	generate_results(stud_obj);
+
+	for (int i = 0; i < STUDENT_COUNT; i++)
+		cout << stud_obj[i];
+
 	_getch();
 }

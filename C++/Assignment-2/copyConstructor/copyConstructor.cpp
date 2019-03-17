@@ -10,26 +10,26 @@ public:
 		real = imag = 0;
 		cout << "default constructor" << endl;
 	}
-	Complex(double r)
+	Complex(double real_obj)
 	{
-		real = imag = r;
+		real = imag = real_obj;
 		cout << "one arg constructor" << endl;
 	}
-	Complex(double r, double i)
+	Complex(double real_obj, double imag_obj)
 	{
-		real = r; imag = i;
+		real = real_obj; imag = imag_obj;
 		cout << "two arg constructor" << endl;
 	}
-	Complex(Complex &c)
+	Complex(Complex &complex_obj)
 	{
-		real = c.real;
-		imag = c.imag;
+		real = complex_obj.real;
+		imag = complex_obj.imag;
 		cout << "copy constructor" << endl;
 	}
 
-	friend istream& operator >> (istream& cin, Complex &c);
-	friend ostream& operator<<(ostream& cout, Complex c);
-	Complex operator+(Complex &c);
+	friend istream& operator >> (istream& cin, Complex &complex_obj);
+	friend ostream& operator<<(ostream& cout, Complex complex_obj);
+	Complex operator+(Complex &complex_obj);
 
 
 	~Complex()
@@ -39,35 +39,38 @@ public:
 };
 
 
-istream& operator >> (istream& cin, Complex &c)
+istream& operator >> (istream& cin, Complex &complex_obj)
 {
-	cout << "enter real and imag values: ";
-	cin >> c.real >> c.imag;
+	cout << "enter real and imag values to perform addition: ";
+	cin >> complex_obj.real >> complex_obj.imag;
 	return cin;
 }
 
-ostream& operator<<(ostream& cout, Complex c)
+ostream& operator<<(ostream& cout, Complex complex_obj)
 {
-	cout << "RESULT: " << c.real << " +(i) " << c.imag << endl;
+	cout << "RESULT: " << complex_obj.real << " +(i) " << complex_obj.imag << endl;
 	return cout;
 }
 
-Complex Complex::operator+(Complex &c)
+Complex Complex::operator+(Complex &complex_obj)
 {
 	Complex temp;
 	cout << "Binary + operation" << endl;
-	temp.real = real + c.real;
-	temp.imag = imag + c.imag;
+	temp.real = real + complex_obj.real;
+	temp.imag = imag + complex_obj.imag;
 	return temp;
 }
 
 void main()
 {
-	Complex c1(10, 10);
-	Complex c2(c1);
-	Complex c3;
-	cin >> c1;
-	c3 = c1 + c2;
-	cout << c3;
+	int num1 = 0, num2 = 0;
+	cout << "enter real and imaginary values: ";
+		cin >> num1 >> num2;
+	Complex complex_num1(num1, num2);
+	Complex complex_num2(complex_num1);
+	Complex complex_num3;
+	cin >> complex_num1;
+	complex_num3 = complex_num1 + complex_num2;
+	cout << complex_num3;
 	_getch();
 }

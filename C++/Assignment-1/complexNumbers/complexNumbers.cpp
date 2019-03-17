@@ -1,53 +1,79 @@
-#include<conio.h>
 #include<iostream>
 using namespace std;
 
 class Complex
 {
 	double real, imag;
+
 public:
+
 	Complex()
 	{
 		real = imag = 0;
+		cout << "Default Constructor\n";
+		//displayComplex();
 	}
-	Complex(double v)
+
+	Complex(double num)
 	{
-		real = imag = v;
+		real = imag = num;
+		cout << "One argument Constructor\n";
+		//displayComplex();
 	}
-	Complex(double r, double i)
+
+	Complex(double real_arg, double imag_arg)
 	{
-		real = r; imag = i;
+		real = real_arg; imag = imag_arg;
+		cout << "Two argument Constructor\n";
+	//	displayComplex();
 	}
-	friend void addComplex(Complex &c1, Complex &c2);
-	friend void multiplyComplex(Complex &c1, Complex &c2);
+
+	friend void addComplex(Complex &complex_obj1, Complex &complex_obj2);
+	friend void multiplyComplex(Complex &complex_obj1, Complex &complex_obj2);
+
 	void displayComplex()
 	{
-		cout << "result is: " << real << "+(i)" << imag<<endl;
+		cout << "Result is: " << real << "+(i)" << imag <<"\n";
+	}
+
+	~Complex()
+	{
+		cout << "Destructor\n";
 	}
 };
-void addComplex(Complex &c1, Complex &c2)
+
+
+void addComplex(Complex &complex_obj1, Complex &complex_obj2)
 {
-	Complex c;
-	c.real = c1.real + c2.real;
-	c.imag = c1.imag + c2.imag;
+	Complex temp;
+	temp.real = complex_obj1.real + complex_obj2.real;
+	temp.imag = complex_obj1.imag + complex_obj2.imag;
 	cout << "Addition ";
-	c.displayComplex();
+	temp.displayComplex();
 }
 
-void multiplyComplex(Complex &c1, Complex &c2)
+
+void multiplyComplex(Complex &complex_obj1, Complex &complex_obj2)
 {
-	Complex c;
-	c.real = c1.real * c2.real - c1.imag * c2.imag;
-	c.imag = c1.real * c2.imag + c2.real + c1.imag;
+	Complex temp;
+	temp.real = complex_obj1.real * complex_obj2.real - complex_obj1.imag * complex_obj2.imag;
+	temp.imag = complex_obj1.real * complex_obj2.imag + complex_obj2.real + complex_obj1.imag;
 	cout << "Multiplication ";
-	c.displayComplex();
+	temp.displayComplex();
 }
+
+
 void main()
 {
-	Complex c1(20.234, 12.212);
-	Complex c2(86.124);
-	Complex c3;
-	addComplex(c1, c2);
-	multiplyComplex(c1, c2);
-	_getch();
+	double num1 = 0, num2 = 0, num3 = 0;
+	cout << "Enter three numbers: ";
+	cin >> num1 >> num2 >> num3;
+	Complex complex_obj1(num1, num2);
+	Complex complex_obj2(num3);
+	Complex complex_obj3;
+
+	addComplex(complex_obj1, complex_obj2);
+	multiplyComplex(complex_obj1, complex_obj2);
+
+	system("pause");
 }
