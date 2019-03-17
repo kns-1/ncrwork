@@ -1,6 +1,5 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include<iostream>
-#include<conio.h>
 #include<string>
 #define MAX 100
 //#include<stdlib.h>
@@ -22,17 +21,17 @@ public:
 		cout << "one arg constructor" << endl;
 	}
 	
-	StringOverload(StringOverload &ob, int size)
+	StringOverload(StringOverload &obj, int size)
 	{
 		mystring = new char[size];
-		mystring = ob.mystring;
+		mystring = obj.mystring;
 		cout << "copy constructor" << endl;
 	}
 
-	friend istream& operator>>(istream& cin, StringOverload &s);
-	friend ostream& operator<<(ostream& cout, StringOverload s);
-	StringOverload operator+(StringOverload &s);
-	char* operator=(StringOverload &s);
+	friend istream& operator>>(istream& cin, StringOverload &obj);
+	friend ostream& operator<<(ostream& cout, StringOverload obj);
+	StringOverload operator+(StringOverload &obj);
+	char* operator=(StringOverload &obj);
 	char operator[](int location);
 
 
@@ -45,32 +44,32 @@ public:
 };
 
 
-istream& operator>>(istream& cin, StringOverload &s)
+istream& operator>>(istream& cin, StringOverload &obj)
 {
 	cout << "enter string: ";
-	cin.get(s.mystring,'\n');
+	cin.get(obj.mystring,'\n');
 	return cin;
 }
 
-ostream& operator<<(ostream& cout, StringOverload s)
+ostream& operator<<(ostream& cout, StringOverload obj)
 {
-	cout << "String is: "<< s.mystring << endl;
+	cout << "String is: "<< obj.mystring << endl;
 	return cout;
 }
 
-StringOverload StringOverload::operator+(StringOverload &s)
+StringOverload StringOverload::operator+(StringOverload &obj)
 {
 	StringOverload temp;
 	cout << "Binary + operation" << endl;
 	strcpy(temp.mystring, mystring);
-	strcat(temp.mystring, s.mystring);
+	strcat(temp.mystring, obj.mystring);
 	return temp;
 }
 
-char* StringOverload::operator=(StringOverload &s)
+char* StringOverload::operator=(StringOverload &obj)
 {
 	cout << "= overload operation" << endl;
-	strcpy(mystring, s.mystring);
+	strcpy(mystring, obj.mystring);
 	return mystring;
 }
 
@@ -97,5 +96,5 @@ void main()
 	ob2.~StringOverload();
 	ob3.~StringOverload();
 
-	_getch();
+	system("pause");
 }

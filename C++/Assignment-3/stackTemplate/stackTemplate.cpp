@@ -3,7 +3,6 @@
 #include<stdio.h>
 using namespace std;
 #define MAX 5
-#define STRING_SIZE 100
 int top = -1;
 
 template <class T>
@@ -20,33 +19,29 @@ public:
 };
 
 template <class T>
-void Stack<T>::push(T ele)
+void Stack<T>::push(T element)
 {
-	if (top == MAX)
+	if (MAX == top)
 			throw "stack full";
 	
-	my_stack[++top] = ele;
+	my_stack[++top] = element;
 }
 
 template <class T>
 T Stack<T>::pop()
 {
-	if (top == -1)
-	{
+	if (-1 == top)
 		throw "stack empty";
-		return 0;
-	}
+	
 	return my_stack[top--];
 }
 
 template<class T>
 void Stack<T>::display()
 {
-	if (top == -1)
-	{
-		cout << "stack empty" << endl;
-		return;
-	}
+	if (-1 == top)
+		throw "stack empty";
+
 	cout << "The elements are: ";
 	for (int i = 0; i <= top; i++)
 		cout << my_stack[i] << " ";
@@ -56,22 +51,18 @@ void Stack<T>::display()
 template<class T>
 T Stack<T>::topele()
 {
-	if (top == -1)
-	{
-		cout << "stack empty" << endl;
-		return NULL;;
-	}
+	if (-1 == top)
+		throw "stack empty";
+
 	return my_stack[top];
 }
 
 template<class T>
 int Stack<T>::size()
 {
-	if (top == -1)
-	{
-		cout << "stack empty" << endl;
-		return NULL;
-	}
+	if (-1 == top)
+		throw "stack empty";
+
 	return (top + 1);
 }
 
@@ -104,9 +95,9 @@ void Stack<T>::read()
 
 		default: { cout << "invalid choice, exiting loop\n"; }
 		}
-		cout << "enter -1 to stop: ";
+		cout << "enter -1 to go to main menu: ";
 		cin >> choice;
-		if (choice == -1)
+		if (-1 == choice)
 			break;
 	}
 
@@ -118,11 +109,11 @@ void main()
 	
 		while (1)
 		{
-			cout << "enter choice: 1.int, 2.float, 3.char, 4.exit\n";
+			cout << "enter choice: 1.int, 2.float, 3.string, 4.exit\n";
 			cin >> option;
 			switch (option)
 			{
-			case 1: Stack<int> int_obj;
+			case 1: { Stack<int> int_obj;
 				try {
 					//s1.push(10);
 				//	cout << s1.pop();
@@ -132,8 +123,8 @@ void main()
 				{
 					cout << msg << endl;
 				}
-				break;
-			case 2: Stack<float> float_obj;
+				break; }
+			case 2: { Stack<float> float_obj;
 				try {
 					//s2.push(23.343534);
 					//cout << s2.pop();
@@ -144,8 +135,8 @@ void main()
 					cout << msg << endl;
 				}
 
-				break;
-			case 3: Stack<string> string_obj;
+				break; }
+			case 3: { Stack<string> string_obj;
 				try {
 					//s3.push("navya");
 					//cout << s3.pop();
@@ -155,11 +146,14 @@ void main()
 				{
 					cout << msg << endl;
 				}
-				break;
+				break; }
+			case 4: break;
+			default: cout << "invalid choice\n";
 			}
+			
 			cout << "enter -1 to stop: ";
 			cin >> choice;
-			if (choice == -1)
+			if (-1 == choice)
 				break;
 		}
 	system("pause");
