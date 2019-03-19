@@ -57,7 +57,7 @@ void multiplyComplex(Complex &complex_obj1, Complex &complex_obj2)
 {
 	Complex temp;
 	temp.real = complex_obj1.real * complex_obj2.real - complex_obj1.imag * complex_obj2.imag;
-	temp.imag = complex_obj1.real * complex_obj2.imag + complex_obj2.real * complex_obj1.imag;
+	temp.imag = complex_obj1.real * complex_obj2.imag + complex_obj2.real + complex_obj1.imag;
 	cout << "Multiplication ";
 	temp.displayComplex();
 }
