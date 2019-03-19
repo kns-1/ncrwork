@@ -108,7 +108,7 @@ void Tree<T>::deletion()
 		{
 			
 			if (ele < temp->data)
-			{1
+			{
 				parent = temp;
 				temp = temp->lc;
 			}
@@ -143,10 +143,20 @@ void Tree<T>::deletion()
 				else  //two children
 				{
 					struct node *max = temp->lc;
+					struct node *max_parent = temp;
+					int max_flag = 0;
 					while (max->rc != NULL) //finding the largest element in the left subtree (Traverse right)
+					{
+						max_flag = 1;
+						max_parent = max;
 						max = max->rc;
+					}
 					temp->data = max->data;
-					temp->lc = max->lc;
+					if (max_flag == 0)
+						temp->lc = max->lc;
+					if(max->lc != NULL && max_flag==1)
+						max_parent->rc = max->lc;
+					
 					delete max;
 				}
 
