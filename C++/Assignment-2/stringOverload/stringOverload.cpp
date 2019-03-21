@@ -21,9 +21,9 @@ public:
 		cout << "one arg constructor" << endl;
 	}
 	
-	StringOverload(StringOverload &obj, int size)
+	StringOverload(StringOverload &obj)
 	{
-		mystring = new char[size];
+		//mystring = new char[size];
 		mystring = obj.mystring;
 		cout << "copy constructor" << endl;
 	}
@@ -31,7 +31,7 @@ public:
 	friend istream& operator>>(istream& cin, StringOverload &obj);
 	friend ostream& operator<<(ostream& cout, StringOverload obj);
 	StringOverload operator+(StringOverload &obj);
-	char* operator=(StringOverload &obj);
+//	char* operator=(StringOverload &obj);
 	char operator[](int location);
 
 
@@ -66,12 +66,12 @@ StringOverload StringOverload::operator+(StringOverload &obj)
 	return temp;
 }
 
-char* StringOverload::operator=(StringOverload &obj)
-{
-	cout << "= overload operation" << endl;
-	strcpy(mystring, obj.mystring);
-	return mystring;
-}
+//char* StringOverload::operator=(StringOverload &obj)
+//{
+//	cout << "= overload operation" << endl;
+//	strcpy(mystring, obj.mystring);
+//	return mystring;
+//}
 
 char StringOverload::operator[](int location)
 {
@@ -84,10 +84,9 @@ void main()
 	StringOverload ob1(MAX);
 	cin >> ob1;
 	cout << ob1;
-	StringOverload ob2(ob1, MAX);
-	StringOverload ob3;
-	ob3 = ob2;
-	cout <<"After = overload, "<< ob3;
+	StringOverload ob2(ob1);
+	StringOverload ob3 = ob2;
+	cout <<"After copy, ob3= "<< ob3;
 	ob3 = ob2 + ob1;
 	cout<<"After binary +, "<<ob3;
 	cout << "After [] overload, " << ob3[2]<<endl;

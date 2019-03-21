@@ -11,6 +11,7 @@ public:
 		cout << "Base class" << endl;
 		pr = 10;
 	}
+	
 };
 
 class Derived :public Base
@@ -22,6 +23,8 @@ public:
 		cout << pr<<endl;//accessible as it is a public member of the base class
 	}
 };
+
+
 void main()
 {
 	Base *ob;
