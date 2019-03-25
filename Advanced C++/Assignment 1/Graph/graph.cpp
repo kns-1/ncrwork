@@ -10,16 +10,74 @@ class GraphClass
 public:
 	GraphClass()
 	{
-		adj_mat = NULL;
+		/*adj_mat = NULL;
 		visited = NULL;
-		vertices = 0;
+		vertices = 0;*/
+		cout << "Inside default constructor\n";
 	}
+
+	/*GraphClass(const GraphClass &ob)
+	{
+		vertices = ob.vertices;
+		adj_mat = new int*[vertices];
+		for (int i = 1; i <= vertices; i++)
+		{
+			adj_mat[i] = new int[vertices];
+			for (int j = 1; j <= vertices; j++)
+				adj_mat[i][j] = ob.adj_mat[i][j];
+		}
+
+		visited = new int[vertices];
+		for (int i = 1; i <= vertices; i++)
+			visited[i] = ob.visited[i];
+		cout << "Inside copy constructor\n";
+	}*/
 	void enter_adj_matrix();
 	void bfs();
 	void dfs();
+
+	/*GraphClass operator =(GraphClass ob)
+	{
+		if (ob.adj_mat == NULL)
+		{
+			delete[] adj_mat;
+		}
+		if (ob.visited == NULL)
+		{
+			delete[] visited;
+		}
+		vertices = ob.vertices;
+		adj_mat = new int*[vertices];
+		for (int i = 1; i <= vertices; i++)
+		{
+			adj_mat[i] = new int[vertices];
+			for (int j = 1; j <= vertices; j++)
+				adj_mat[i][j] = ob.adj_mat[i][j];
+		}
+		visited = new int[vertices];
+		for (int i = 1; i <= vertices; i++)
+			visited[i] = ob.visited[i];
+
+		return (*this);
+	}*/
+
+
 	~GraphClass()
 	{
-		cout << "Destructor\n";
+		cout << "Inside destructor\n";
+		for (int i = 1; i <= vertices; i++)
+		{
+			cout << "Inside for loop\n";
+			delete [] adj_mat[i];
+		}
+		cout << "after for loop\n";
+		delete [] adj_mat;
+		cout << "deleting visited\n";
+		delete [] visited;
+		/*adj_mat = nullptr;
+		visited = nullptr;*/
+		vertices = 0;
+		cout << "Exiting Destructor\n";
 	}
 
 };
@@ -42,7 +100,8 @@ void GraphClass::enter_adj_matrix()
 
 	visited = new int[vertices];
 	for (int i = 1; i <= vertices; i++)
-			visited[i] = 0;
+			visited[i] = 0;		
+
 
 
 	cout << "The adjaceney matrix is:\n";
@@ -90,10 +149,8 @@ void GraphClass::dfs()
 	cout << "\n";
 	for (int i = 1; i <= vertices; i++)
 		visited[i] = 0;
-
-	delete adj_mat;
-	delete visited;
 }
+
 
 
 void GraphClass::bfs()
@@ -125,16 +182,12 @@ while(!qobj.empty())
 	cout << "\n";
 	for (int i = 1; i <= vertices; i++)
 		visited[i] = 0;
-
-	delete adj_mat;
-	delete visited;
 }
 void main()
 {
 	GraphClass obj;
 	obj.enter_adj_matrix();
 	obj.bfs();
-	obj.enter_adj_matrix();
 	obj.dfs();
 
 	obj.~GraphClass();
